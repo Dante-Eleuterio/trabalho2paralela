@@ -1,0 +1,29 @@
+PARALLEL
+Min dist = 946
+Min dist = 946
+Min dist = 946
+Min dist = 946
+Min dist = 946
+2 threads and 16 cities
+Average Time: 65.175262 seconds
+Standard Deviation: .137273 seconds
+Min dist = 947
+Min dist = 947
+Min dist = 947
+Min dist = 947
+Min dist = 947
+2 threads and 17 cities
+Average Time: 257.521467 seconds
+Standard Deviation: .449936 seconds
+Min dist = 1142
+[mpiexec@Glados] Sending Ctrl-C to processes as requested
+[mpiexec@Glados] Press Ctrl-C again to force abort
+[mpiexec@Glados] Sending Ctrl-C to processes as requested
+[mpiexec@Glados] Press Ctrl-C again to force abort
+[mpiexec@Glados] Sending Ctrl-C to processes as requested
+[mpiexec@Glados] Press Ctrl-C again to force abort
+[mpiexec@Glados] Sending Ctrl-C to processes as requested
+[mpiexec@Glados] Press Ctrl-C again to force abort
+2 threads and 18 cities
+Average Time: 1843.805931 seconds
+Standard Deviation: 2319.089292 seconds

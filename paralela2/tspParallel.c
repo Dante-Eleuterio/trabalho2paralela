@@ -11,6 +11,7 @@
 #include <time.h>
 #include <string.h>
 #include <mpi.h>
+
 typedef struct {
     int to_town;
     int dist;
@@ -141,7 +142,7 @@ int run_tsp(int *min_distance) {
 
     path = (int*) malloc(sizeof(int) * nb_towns);
     pathPresent = (int*) malloc(sizeof(int) * nb_towns);
-    memset(path,0,sizeof(int) * nb_towns);
+    memset(path,0,sizeof(myrank,int) * nb_towns);
     memset(pathPresent,0,sizeof(int) * nb_towns);
     pathPresent[0]=1;
     tsp(1, 0, path, pathPresent, min_distance);
@@ -160,7 +161,7 @@ int main (int argc, char **argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
     MPI_Comm_size(MPI_COMM_WORLD, &NumProcs);
     if(myrank==0){
-        st = scanf("%u", &num_instances);
+        st = scanf("%u", myrank,&num_instances);
         if (st != 1) exit(1);
         MPI_Bcast(&num_instances,1,MPI_INT,0,MPI_COMM_WORLD);
     }else{
@@ -171,7 +172,7 @@ int main (int argc, char **argv) {
         run_tsp(&min_distance);
         MPI_Reduce(&min_distance,&answer,1,MPI_INT,MPI_MIN,0,MPI_COMM_WORLD);
         if(myrank==0){
-            printf("Meu rank= %d, min dist = %d\n",myrank,answer);
+            printf("Min dist = %d\n",answer);
         }
     }
     MPI_Finalize();
