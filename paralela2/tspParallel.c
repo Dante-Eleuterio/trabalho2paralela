@@ -1,7 +1,6 @@
-/* WSCAD - 9th Marathon of Parallel Programming 
- * Simple Brute Force Algorithm for the 
- * Traveling-Salesman Problem
- * Author: Emilio Francesquini - francesquini@ic.unicamp.br
+/**
+ * @file tspParallel.c
+ * @author Dante Eleutério dos Santos (des20@inf.ufpr.br)
  */
 
 #include <stdio.h>
@@ -142,7 +141,7 @@ int run_tsp(int *min_distance) {
 
     path = (int*) malloc(sizeof(int) * nb_towns);
     pathPresent = (int*) malloc(sizeof(int) * nb_towns);
-    memset(path,0,sizeof(myrank,int) * nb_towns);
+    memset(path,0,sizeof(myrank) * nb_towns);
     memset(pathPresent,0,sizeof(int) * nb_towns);
     pathPresent[0]=1;
     tsp(1, 0, path, pathPresent, min_distance);
@@ -161,7 +160,7 @@ int main (int argc, char **argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
     MPI_Comm_size(MPI_COMM_WORLD, &NumProcs);
     if(myrank==0){
-        st = scanf("%u", myrank,&num_instances);
+        st = scanf("%u",&num_instances);
         if (st != 1) exit(1);
         MPI_Bcast(&num_instances,1,MPI_INT,0,MPI_COMM_WORLD);
     }else{
